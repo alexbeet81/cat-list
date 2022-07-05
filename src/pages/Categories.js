@@ -3,7 +3,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import CatImageCard from "../components/CatImageCard";
 import { useGetSearchCategories } from "../hooks/use-get-search-categories";
@@ -13,28 +13,32 @@ const Categories = () => {
   const {
     data: categoriesData,
     isLoading: categoriesIsLoading,
-    isError: categoriesIsError,
-    error: categoreisError,
+    // isError: categoriesIsError,
+    // error: categoreisError,
   } = useGetCategoies();
 
+  const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState("hats");
 
   const {
     data: searchCategoriesData,
     isLoading: searchCategoriesIsLoading,
-    isError: searchCategoriesIsError,
-    error: searchCategoriesError,
-  } = useGetSearchCategories(category);
+    // isError: searchCategoriesIsError,
+    // error: searchCategoriesError,
+    refetch: refetchSearchCategories
+  } = useGetSearchCategories(category, currentPage);
 
   const selectCategoryHandler = (event) => {
     setCategory(event.target.value);
   };
 
+  useEffect(() => {
+    refetchSearchCategories();
+  }, [category, refetchSearchCategories, currentPage])
+
   if (searchCategoriesIsLoading) return <p>Loading...</p>;
   if (categoriesIsLoading) return <p>Loading...</p>;
-
-  console.log(searchCategoriesData);
-
+  
   const selectCategories = categoriesData.map((category) => {
     return (
       <MenuItem key={category.id} value={category.name} label={category.name}>
@@ -42,7 +46,7 @@ const Categories = () => {
       </MenuItem>
     );
   });
-
+  
   const catImageCards = searchCategoriesData.map((imageData) => {
     return <CatImageCard key={imageData.id} imageData={imageData}/>
   })
@@ -65,6 +69,7 @@ const Categories = () => {
           </FormControl>
         </div>
       </div>
+      {searchCategoriesData.length < 1 && <p>No cats to see here</p>}
       <div className={classes.gridContainer}>
         <div className={classes.grid}>{catImageCards}</div>
       </div>

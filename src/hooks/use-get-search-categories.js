@@ -6,18 +6,18 @@ import { baseUrl } from "../react-query/base-url";
 import { apiKey } from "../react-query/api-key";
 
 const CATID = {
-  "boxes": 5,
-  "clothes": 15,
-  "hats": 1,
-  "sinks": 14,
-  "space": 2,
-  "sunglasses": 4,
-  "ties": 7
-}
+  boxes: 5,
+  clothes: 15,
+  hats: 1,
+  sinks: 14,
+  space: 2,
+  sunglasses: 4,
+  ties: 7,
+};
 
-const getSearchCategories = async (categoryId) => {
+const getSearchCategories = async (categoryId, currentPage) => {
   const { data } = await axios(
-    `${baseUrl}/images/search?category_ids=${CATID[categoryId]}&limit=30&page=2&order=ASC`,
+    `${baseUrl}/images/search?category_ids=${CATID[categoryId]}&limit=15&page=${currentPage}&order=ASC`,
     {
       headers: {
         "x-api-key": apiKey,
@@ -28,14 +28,17 @@ const getSearchCategories = async (categoryId) => {
   return data;
 };
 
-export const useGetSearchCategories = (categoryId) => {
+export const useGetSearchCategories = (categoryId, currentPage) => {
   const fallback = [];
   const {
     data = fallback,
     isLoading,
     isError,
     error,
-  } = useQuery(queryKeys.searchCategories, () => getSearchCategories(categoryId));
+    refetch,
+  } = useQuery([queryKeys.searchCategories, currentPage], () =>
+    getSearchCategories(categoryId, currentPage)
+  );
 
-  return { data, isLoading, isError, error };
+  return { data, isLoading, isError, error, refetch };
 };
