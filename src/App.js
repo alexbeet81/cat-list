@@ -1,9 +1,12 @@
-import Navbar from "./components/UI/Navbar";
+import { Router } from "react-router-dom";
+import Layout from "./components/UI/Layout";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <Layout>
+        
+      </Layout>
     </div>
   );
 }
