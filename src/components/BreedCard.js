@@ -1,23 +1,31 @@
+import { useState } from "react";
+
+import noCatImage from "../assets/nocat.jpeg";
 import { Fragment } from "react";
 import BreedModal from "./BreedModal";
 import classes from "./BreedCard.module.css";
 import Card from "./UI/Card";
-import { useState } from 'react';
 
-const BreedCard = ({ image, name, onClick }) => {
-  const [modalIsShown, setModalIsShown] = useState(false)
+const BreedCard = ({ breed }) => {
+  const [modalIsShown, setModalIsShown] = useState(false);
+
+  let image = noCatImage;
+
+  if (breed.image != undefined) {
+    image = breed.image.url;
+  }
 
   let fntSize = "1.5rem";
 
-  if (name.length > 13) {
+  if (breed.name.length > 13) {
     fntSize = "1.3rem";
   }
 
-  if (name.length > 15) {
+  if (breed.name.length > 15) {
     fntSize = "1.2rem";
   }
 
-  if (name.length > 18) {
+  if (breed.name.length > 18) {
     fntSize = "1rem";
   }
 
@@ -26,18 +34,20 @@ const BreedCard = ({ image, name, onClick }) => {
   };
 
   const hideBreedModalHandler = () => {
-
+    setModalIsShown(false);
   };
 
   return (
     <Fragment>
-      {modalIsShown && <BreedModal />}
+      {modalIsShown && (
+        <BreedModal onClick={hideBreedModalHandler} breed={breed} />
+      )}
       <Card onClick={showBreedModalHandler} className={classes.card}>
         <div className={classes.gradient}>
-          <img src={image} alt={name} className={classes.overlay} />
+          <img src={image} alt={breed.name} className={classes.overlay} />
         </div>
         <div className={classes.breedName}>
-          <h2 style={{ fontSize: fntSize }}>{name}</h2>
+          <h2 style={{ fontSize: fntSize }}>{breed.name}</h2>
         </div>
       </Card>
     </Fragment>

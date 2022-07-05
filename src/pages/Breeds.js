@@ -1,13 +1,10 @@
-import BreedModal from "../components/BreedModal";
 import { useGetBreeds } from "../hooks/use-get-breeds";
 import classes from "./Breeds.module.css";
 import BreedCard from "../components/BreedCard";
 import noCatImage from "../assets/nocat.jpeg";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 const Breeds = () => {
-  const [breedData, setBreedData] = useState({})
-
   const {
     data: breedsData,
     isLoading: breedsIsLoading,
@@ -27,7 +24,7 @@ const Breeds = () => {
 
     console.log(breed);
 
-    return <BreedCard key={breed.id} name={breed.name} image={image}/>;
+    return <BreedCard key={breed.id} breed={breed} />;
   });
 
   return (
