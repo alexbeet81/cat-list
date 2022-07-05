@@ -22,8 +22,6 @@ const Breeds = () => {
       image = breed.image.url;
     }
 
-    console.log(breed);
-
     return <BreedCard key={breed.id} breed={breed} />;
   });
 

@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Fragment, useEffect, useState } from "react";
 
+import PageButtons from "../components/PageButtons";
 import CatImageCard from "../components/CatImageCard";
 import { useGetSearchCategories } from "../hooks/use-get-search-categories";
 import { useGetCategoies } from "../hooks/use-get-categories";
@@ -30,6 +31,14 @@ const Categories = () => {
 
   const selectCategoryHandler = (event) => {
     setCategory(event.target.value);
+  };
+
+  const leftClickHandler = () => {
+    setCurrentPage(currentPage => currentPage -= 1);
+  };
+
+  const rightClickHandler = () => {
+    setCurrentPage(currentPage => currentPage += 1);
   };
 
   useEffect(() => {
@@ -73,6 +82,7 @@ const Categories = () => {
       <div className={classes.gridContainer}>
         <div className={classes.grid}>{catImageCards}</div>
       </div>
+      <PageButtons leftClick={leftClickHandler} rightClick={rightClickHandler} currentPage={currentPage}/>
     </Fragment>
   );
 };
