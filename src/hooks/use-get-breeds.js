@@ -22,7 +22,7 @@ export const useGetBreeds = () => {
     isLoading,
     isError,
     error,
-  } = useQuery(queryKeys.breeds, getBreeds());
+  } = useQuery(queryKeys.breeds, () => getBreeds());
 
   return { data, isLoading, isError, error };
 };
