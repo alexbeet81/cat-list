@@ -25,6 +25,9 @@ const BreedModal = ({ onClick, breed }) => {
         <div className={classes.lifeSpan}>
           <h4>Life span: {breed.life_span} years</h4>
         </div>
+        <div className={classes.stat}>
+          <h3>Lap friendly</h3>
+        </div>
       </div>
     </Modal>
   );
