@@ -1,7 +1,7 @@
 import classes from "./BreedCard.module.css";
 import Card from "./UI/Card";
 
-const BreedCard = ({ name }) => {
+const BreedCard = ({ image, name }) => {
 
   let fntSize = "1.5rem"
 
@@ -19,6 +19,7 @@ const BreedCard = ({ name }) => {
 
   return (
     <Card className={classes.card}>
+      <img src={image} alt={name}/>
       <div className={classes.breedName}>
         <h2 style={{ fontSize: fntSize }}>{name}</h2>
       </div>

@@ -3,6 +3,13 @@
   height: 9.5rem;
 }
 
+.card img {
+  width: 11.5rem;
+  height: 9.5rem;
+  object-fit: cover;
+  object-position: center;
+}
+
 .breedName {
   width: inherit;
   display: flex;

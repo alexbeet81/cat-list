@@ -1,6 +1,7 @@
 import { useGetBreeds } from "../hooks/use-get-breeds";
 import classes from "./Breeds.module.css";
 import BreedCard from "../components/BreedCard";
+import noCatImage from "../assets/nocat.jpeg";
 
 const Breeds = () => {
   const {
@@ -10,10 +11,11 @@ const Breeds = () => {
     error: BreedsError,
   } = useGetBreeds();
 
-  console.log(breedsData);
-
   const breedCards = breedsData.map((breed) => {
-    return <BreedCard key={breed.id} name={breed.name} />;
+    console.log(breed);
+    // const image = breed.image.url
+
+    return <BreedCard key={breed.id} name={breed.name} image={noCatImage} />;
   });
 
   if (breedsIsLoading) return <p>Loading...</p>;
