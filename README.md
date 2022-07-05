@@ -13,3 +13,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+list of dependancies
+React Query
+React Icons
+React UI (check name)
