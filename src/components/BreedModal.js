@@ -18,6 +18,7 @@ const BreedModal = ({ onClick, breed }) => {
           <img src={image} alt={breed.name} />
         </div>
         <div className={classes.nameContainer}>
+          <img src={`https://countryflagsapi.com/svg/${breed.country_code}`} alt="test" />
           <h2>{breed.name}</h2>
         </div>
         <div className={classes.description}>
