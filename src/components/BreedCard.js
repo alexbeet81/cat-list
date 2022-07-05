@@ -3,7 +3,19 @@ import Card from "./UI/Card";
 
 const BreedCard = ({ name }) => {
 
-  const fntSize = name.length > 15 ? "1.2rem" : "1.5rem"
+  let fntSize = "1.5rem"
+
+  if (name.length > 13) {
+    fntSize = "1.3rem"
+  }
+
+  if (name.length > 15) {
+    fntSize = "1.2rem"
+  }
+
+  if (name.length > 18) {
+    fntSize = "1rem"
+  }
 
   return (
     <Card className={classes.card}>

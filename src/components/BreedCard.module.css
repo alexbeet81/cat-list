@@ -5,10 +5,14 @@
 
 .breedName {
   width: inherit;
+  display: flex;
+  height: 2rem;
   position: relative;
-  top: 7.5rem;
+  top: 7rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .breedName h2 {
-  text-align: center;
+  margin: 0;
 }

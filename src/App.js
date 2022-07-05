@@ -1,4 +1,4 @@
-import { Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/UI/Layout";
 
 import Breeds from "./pages/Breeds";
@@ -7,7 +7,9 @@ function App() {
   return (
     <div>
       <Layout>
-        <Breeds />
+        <Routes>
+          <Route path="/" element={<Breeds />} />
+        </Routes>
       </Layout>
     </div>
   );
