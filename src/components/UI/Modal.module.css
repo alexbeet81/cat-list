@@ -13,7 +13,7 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
+  top: 2rem;
   left: 22%;
   width: 35rem;
   /* max-width: 37%; */

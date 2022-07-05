@@ -1,9 +1,16 @@
 .container {
   width: 35rem;
+  padding-bottom: 2rem;
 }
 
 .image {
 
+}
+
+.nameContainer,
+.description,
+.lifeSpan {
+  padding: 0 1rem 0 1rem;
 }
 
 .image img {
