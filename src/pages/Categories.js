@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Fragment, useState } from "react";
 
+import CatImageCard from "../components/CatImageCard";
 import { useGetSearchCategories } from "../hooks/use-get-search-categories";
 import { useGetCategoies } from "../hooks/use-get-categories";
 
@@ -16,14 +17,14 @@ const Categories = () => {
     error: categoreisError,
   } = useGetCategoies();
 
-  const [category, setCategory] = useState({ id: 1, name: "hats" });
+  const [category, setCategory] = useState("hats");
 
   const {
     data: searchCategoriesData,
     isLoading: searchCategoriesIsLoading,
     isError: searchCategoriesIsError,
     error: searchCategoriesError,
-  } = useGetSearchCategories();
+  } = useGetSearchCategories(category);
 
   const selectCategoryHandler = (event) => {
     setCategory(event.target.value);
@@ -35,16 +36,16 @@ const Categories = () => {
   console.log(searchCategoriesData);
 
   const selectCategories = categoriesData.map((category) => {
-    const value = {
-      id: category.id,
-      name: category.name,
-    };
     return (
-      <MenuItem key={category.id} value={value} label={category.name}>
+      <MenuItem key={category.id} value={category.name} label={category.name}>
         {category.name}
       </MenuItem>
     );
   });
+
+  const catImageCards = searchCategoriesData.map((imageData) => {
+    return <CatImageCard key={imageData.id} imageData={imageData}/>
+  })
 
   return (
     <Fragment>
@@ -55,7 +56,7 @@ const Categories = () => {
             <Select
               labelId="category"
               id="category"
-              value={category.name}
+              value={category}
               label="category"
               onChange={selectCategoryHandler}
             >
@@ -63,6 +64,9 @@ const Categories = () => {
             </Select>
           </FormControl>
         </div>
+      </div>
+      <div className={classes.gridContainer}>
+        <div className={classes.grid}>{catImageCards}</div>
       </div>
     </Fragment>
   );

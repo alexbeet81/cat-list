@@ -7,3 +7,13 @@
   margin: 1rem 0 0 1rem;
   width: 20rem;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem 1rem;
+}
+
+.gridContainer {
+  margin: 1rem 0 10rem 0;
+}
