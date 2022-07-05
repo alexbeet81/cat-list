@@ -1,0 +1,21 @@
+.container {
+  background-color: var(--main);
+  width: 100vw;
+  height: 5.5rem;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links {
+  width: 37rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--md-font);
+}
+
+.links a {
+  color: var(--black);
+  text-decoration: none;
+}

@@ -1,0 +1,10 @@
+.flexContainer {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background: blue;
+  width: 1000px;
+}
