@@ -1,0 +1,9 @@
+.selectContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  margin: 1rem 0 0 1rem;
+  width: 20rem;
+}
