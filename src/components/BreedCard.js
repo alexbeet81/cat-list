@@ -1,7 +1,12 @@
+import { Fragment } from "react";
+import BreedModal from "./BreedModal";
 import classes from "./BreedCard.module.css";
 import Card from "./UI/Card";
+import { useState } from 'react';
 
-const BreedCard = ({ image, name }) => {
+const BreedCard = ({ image, name, onClick }) => {
+  const [modalIsShown, setModalIsShown] = useState(false)
+
   let fntSize = "1.5rem";
 
   if (name.length > 13) {
@@ -16,15 +21,26 @@ const BreedCard = ({ image, name }) => {
     fntSize = "1rem";
   }
 
+  const showBreedModalHandler = () => {
+    setModalIsShown(true);
+  };
+
+  const hideBreedModalHandler = () => {
+
+  };
+
   return (
-    <Card className={classes.card}>
-      <div className={classes.gradient}>
-        <img src={image} alt={name} className={classes.overlay} />
-      </div>
-      <div className={classes.breedName}>
-        <h2 style={{ fontSize: fntSize }}>{name}</h2>
-      </div>
-    </Card>
+    <Fragment>
+      {modalIsShown && <BreedModal />}
+      <Card onClick={showBreedModalHandler} className={classes.card}>
+        <div className={classes.gradient}>
+          <img src={image} alt={name} className={classes.overlay} />
+        </div>
+        <div className={classes.breedName}>
+          <h2 style={{ fontSize: fntSize }}>{name}</h2>
+        </div>
+      </Card>
+    </Fragment>
   );
 };
 
