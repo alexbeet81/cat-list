@@ -1,6 +1,7 @@
 .card {
   width: 11.5rem;
   height: 9.5rem;
+  position: relative;
 }
 
 .card img {
@@ -8,13 +9,14 @@
   height: 9.5rem;
   object-fit: cover;
   object-position: center;
+  border-radius: 0.25rem;
 }
 
 .breedName {
   width: inherit;
   display: flex;
   height: 2rem;
-  position: relative;
+  position: absolute;
   top: 7rem;
   align-items: center;
   justify-content: center;
@@ -22,4 +24,6 @@
 
 .breedName h2 {
   margin: 0;
+  color: var(--main);
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }

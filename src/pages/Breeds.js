@@ -11,14 +11,19 @@ const Breeds = () => {
     error: BreedsError,
   } = useGetBreeds();
 
-  const breedCards = breedsData.map((breed) => {
-    console.log(breed);
-    // const image = breed.image.url
-
-    return <BreedCard key={breed.id} name={breed.name} image={noCatImage} />;
-  });
-
   if (breedsIsLoading) return <p>Loading...</p>;
+  if (breedsIsError) return <p>Error...</p>
+
+  const breedCards = breedsData.map((breed) => {
+
+    let image = noCatImage;
+
+    if (breed.image != undefined) {
+      image = breed.image.url
+    }
+
+    return <BreedCard key={breed.id} name={breed.name} image={image} />;
+  });
 
   return (
     <div className={classes.container}>
