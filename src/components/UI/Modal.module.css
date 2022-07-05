@@ -13,8 +13,8 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
-  left: 22%;
+  top: 2rem;
+  left: 32%;
   width: 35rem;
   /* max-width: 37%; */
   background-color: var(--white);
