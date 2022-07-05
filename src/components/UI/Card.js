@@ -1,8 +1,8 @@
 import classes from "./Card.module.css";
 
-const Card = ({ children, onClick }) => {
+const Card = ({ children, onClick, className }) => {
   return (
-    <div className={classes.card} onClick={onClick}>
+    <div className={`${classes.card} ${className}`} onClick={onClick}>
       {children}
     </div>
   );
