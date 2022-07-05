@@ -1,15 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
-  return <div className={classes.container}>
-    <div className={classes.links}>
-      <Link to="/">Genre of Cat</Link>
-      <Link to="/">🐈-agories</Link>
-      <Link to="/">My 😻 List</Link>
+  // const activeStyle = {
+  //   fontWeight: "bold",
+  // };
+
+  const activeStyle = {
+    color: "blue"
+  }
+
+  const isAvtive = ({ isAvtive }) => (isAvtive ? activeStyle : undefined);
+
+  return (
+    <div className={classes.container}>
+      <div className={classes.links}>
+        <NavLink style={isAvtive} to="/">Genre of Cat</NavLink>
+        <NavLink style={isAvtive} to="/">🐈-agories</NavLink>
+        <NavLink style={isAvtive} to="/">My 😻 List</NavLink>
+      </div>
     </div>
-  </div>
+  );
 };
 
 export default Navbar;
