@@ -1,0 +1,15 @@
+.container {
+  width: 35rem;
+}
+
+.image {
+
+}
+
+.image img {
+  width: 35rem;
+  height: 20rem;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
