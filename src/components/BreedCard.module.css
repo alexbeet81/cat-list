@@ -1,0 +1,14 @@
+.card {
+  width: 11.5rem;
+  height: 9.5rem;
+}
+
+.breedName {
+  width: inherit;
+  position: relative;
+  top: 7.5rem;
+}
+
+.breedName h2 {
+  text-align: center;
+}

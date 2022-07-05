@@ -10,6 +10,7 @@ body {
 :root {
   --main: #ffec3b;
   --black: #1c1b22;
+  --white: #ffffff;
   --sm-font: 1rem;
   --md-font: 1.5rem;
 }
