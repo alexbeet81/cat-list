@@ -1,14 +1,46 @@
 .card {
   width: 11.5rem;
   height: 9.5rem;
+  position: relative;
+}
+
+.card img {
+  width: 11.5rem;
+  height: 9.5rem;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0.25rem;
+}
+
+.gradient {
+  position: relative;
+}
+
+.gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11.5rem;
+  height: 9.5rem;
+  border-radius: 0.25rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)); */
 }
 
 .breedName {
   width: inherit;
-  position: relative;
-  top: 7.5rem;
+  display: flex;
+  height: 2rem;
+  position: absolute;
+  top: 7rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .breedName h2 {
-  text-align: center;
+  margin: 0;
+  color: var(--main);
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
 }
