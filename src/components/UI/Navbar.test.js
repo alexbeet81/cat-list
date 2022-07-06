@@ -6,7 +6,7 @@ describe("Navbar component", () => {
     render(<Navbar />);
 
     const genreLinkElement = screen.getByRole("link", {
-      name: /genre of cat/i,
+      name: /kind of cat/i,
     });
 
     expect(genreLinkElement).toBeInTheDocument();
