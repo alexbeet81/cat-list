@@ -1,3 +1,5 @@
 export const queryKeys = {
-  breeds: "breeds"
+  breeds: "breeds",
+  categories: "categories",
+  searchCategories: "search_categories"
 };

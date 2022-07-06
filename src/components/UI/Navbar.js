@@ -8,17 +8,23 @@ const Navbar = () => {
   // };
 
   const activeStyle = {
-    color: "blue"
-  }
+    color: "blue",
+  };
 
   const isAvtive = ({ isAvtive }) => (isAvtive ? activeStyle : undefined);
 
   return (
     <div className={classes.container}>
       <div className={classes.links}>
-        <NavLink style={isAvtive} to="/">Genre of Cat</NavLink>
-        <NavLink style={isAvtive} to="/">🐈-agories</NavLink>
-        <NavLink style={isAvtive} to="/">My 😻 List</NavLink>
+        <NavLink style={isAvtive} to="/">
+          Genre of Cat
+        </NavLink>
+        <NavLink style={isAvtive} to="categories">
+          🐈-egories
+        </NavLink>
+        <NavLink style={isAvtive} to="/">
+          My 😻 List
+        </NavLink>
       </div>
     </div>
   );

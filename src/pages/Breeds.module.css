@@ -7,3 +7,9 @@
 .container {
   margin: 2rem 0 10rem 0;
 }
+
+.loadingCat {
+  margin: 5rem 0 5rem 0;
+  display: flex;
+  justify-content: center;
+}

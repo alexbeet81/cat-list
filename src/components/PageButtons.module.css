@@ -1,0 +1,24 @@
+.buttonBox {
+  background-color: var(--main);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 4.5rem;
+  width: 24rem;
+}
+
+.buttonBox svg {
+  font-size: 2.5rem;
+}
+
+.leftArrow {
+  cursor: pointer;
+  background-color: var(--main);
+  border: none;
+}
+
+.rightArrow {
+  cursor: pointer;
+  background-color: var(--main);
+  border: none;
+}

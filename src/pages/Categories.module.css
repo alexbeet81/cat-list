@@ -1,0 +1,31 @@
+.selectContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  margin: 1rem 0 0 1rem;
+  width: 20rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem 1rem;
+}
+
+.gridContainer {
+  margin: 1rem 0 2rem 0;
+}
+
+.pageButtonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingCat {
+  margin: 5rem 0 5rem 0;
+  display: flex;
+  justify-content: center;
+}

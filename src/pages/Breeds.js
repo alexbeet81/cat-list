@@ -3,6 +3,7 @@ import classes from "./Breeds.module.css";
 import BreedCard from "../components/BreedCard";
 import noCatImage from "../assets/nocat.jpeg";
 import { Fragment } from "react";
+import LoadingCat from "../components/UI/LoadingCat";
 
 const Breeds = () => {
   const {
@@ -12,7 +13,6 @@ const Breeds = () => {
     error: BreedsError,
   } = useGetBreeds();
 
-  if (breedsIsLoading) return <p>Loading...</p>;
   if (breedsIsError) return <p>Error...</p>;
 
   const breedCards = breedsData.map((breed) => {
@@ -22,13 +22,16 @@ const Breeds = () => {
       image = breed.image.url;
     }
 
-    console.log(breed);
-
     return <BreedCard key={breed.id} breed={breed} />;
   });
 
   return (
     <Fragment>
+      {breedsIsLoading && (
+        <div className={classes.loadingCat}>
+          <LoadingCat />
+        </div>
+      )}
       <div className={classes.container}>
         <div className={classes.grid}>{breedCards}</div>
       </div>
