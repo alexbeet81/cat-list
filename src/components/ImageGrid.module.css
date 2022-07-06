@@ -7,3 +7,10 @@
 .gridContainer {
   margin: 1rem 0 2rem 0;
 }
+
+@media only screen and (max-width: 650px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 0.5rem;
+  }
+}
