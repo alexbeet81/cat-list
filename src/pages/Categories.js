@@ -82,7 +82,7 @@ const Categories = () => {
       {searchCategoriesData.length < 1 && !searchCategoriesIsLoading && (
         <p>No cats to see here</p>
       )}
-      {!isFetchingSearchCategories && <ImageGrid data={searchCategoriesData} />}
+      {!isFetchingSearchCategories && <ImageGrid data={searchCategoriesData} fav={false}/>}
       <div className={classes.pageButtonsContainer}>
         <PageButtons
           leftClick={leftClickHandler}

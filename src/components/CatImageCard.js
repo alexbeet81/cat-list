@@ -1,4 +1,4 @@
-import { AiOutlineHeart, AiFillHeart, AiTwotoneHeart } from "react-icons/ai";
+import { AiFillHeart, AiTwotoneHeart } from "react-icons/ai";
 import classes from "./CatImageCard.module.css";
 import Card from "./UI/Card";
 import { useState } from "react";

@@ -1,6 +1,8 @@
 .container {
   height: 10rem;
   width: 10rem;
+  display: flex;
+  justify-content: center;
 }
 
 .container img {
