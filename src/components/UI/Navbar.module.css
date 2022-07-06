@@ -21,3 +21,13 @@
   text-decoration: none;
   transition: all 0.3s;
 }
+
+@media only screen and (max-width: 650px) {
+  .links {
+    width: 22rem;
+  }
+
+  .links a {
+    font-size: 1.3rem;
+  }
+}
