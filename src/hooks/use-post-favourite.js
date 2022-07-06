@@ -7,9 +7,7 @@ import { queryKeys } from "../react-query/query-keys";
 import { subId } from "../react-query/sub-id";
 
 const postFavourite = async (imageId) => {
-  console.log(imageId);
-  
-  const imageData = {
+    const imageData = {
     image_id: imageId,
     sub_id: subId,
   };

@@ -4,7 +4,6 @@ import Modal from "./UI/Modal";
 import classes from "./BreedModal.module.css";
 
 const BreedModal = ({ onClick, breed }) => {
-  console.log(breed);
   let image = noCatImage;
 
   if (breed.image != undefined) {
