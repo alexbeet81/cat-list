@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import classes from "./Navbar.module.css";
 
@@ -22,7 +22,7 @@ const Navbar = () => {
         <NavLink style={isAvtive} to="categories">
           🐈-egories
         </NavLink>
-        <NavLink style={isAvtive} to="/">
+        <NavLink style={isAvtive} to="/my_list">
           My 😻 List
         </NavLink>
       </div>

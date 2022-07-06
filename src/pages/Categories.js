@@ -51,10 +51,6 @@ const Categories = () => {
     );
   });
 
-  const catImageCards = searchCategoriesData.map((imageData) => {
-    return <CatImageCard key={imageData.id} imageData={imageData} />;
-  });
-
   const loadingCat =
     isFetchingSearchCategories || searchCategoriesIsLoading ? (
       <div className={classes.loadingCat}>
@@ -86,7 +82,7 @@ const Categories = () => {
       {searchCategoriesData.length < 1 && !searchCategoriesIsLoading && (
         <p>No cats to see here</p>
       )}
-      {!isFetchingSearchCategories && <ImageGrid images={catImageCards} />}
+      {!isFetchingSearchCategories && <ImageGrid data={searchCategoriesData} />}
       <div className={classes.pageButtonsContainer}>
         <PageButtons
           leftClick={leftClickHandler}
