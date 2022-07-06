@@ -37,7 +37,3 @@ It was a fun, short project. If I continue I will add..
 - [ ] votes
 - [ ] more media queries
 - [ ] add better error handling
-
-## Screen shots
-
-
