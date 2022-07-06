@@ -1,0 +1,11 @@
+.container {
+  height: 10rem;
+  width: 10rem;
+}
+
+.container img {
+  height: 10rem;
+  width: 6rem;
+  object-fit: fit;
+  object-position: top;
+}

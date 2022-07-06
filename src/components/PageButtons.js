@@ -15,7 +15,7 @@ const PageButtons = ({ leftClick, rightClick, currentPage }) => {
       <button className={classes.leftArrow} onClick={leftClick} disabled={disableButton}>
         <BsArrowLeftCircle />
       </button>
-      <h2>Pages</h2>
+      <h2>Page {currentPage}</h2>
       <button className={classes.rightArrow} onClick={rightClick}>
         <BsArrowRightCircle />
       </button>

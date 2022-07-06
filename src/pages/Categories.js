@@ -4,19 +4,17 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Fragment, useEffect, useState } from "react";
+import { useIsFetching } from "react-query";
 
+import LoadingCat from "../components/UI/LoadingCat";
 import PageButtons from "../components/PageButtons";
 import CatImageCard from "../components/CatImageCard";
 import { useGetSearchCategories } from "../hooks/use-get-search-categories";
 import { useGetCategoies } from "../hooks/use-get-categories";
 
 const Categories = () => {
-  const {
-    data: categoriesData,
-    isLoading: categoriesIsLoading,
-    // isError: categoriesIsError,
-    // error: categoreisError,
-  } = useGetCategoies();
+  const isFetching = useIsFetching();
+  const { data: categoriesData } = useGetCategoies();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState("hats");
@@ -26,28 +24,26 @@ const Categories = () => {
     isLoading: searchCategoriesIsLoading,
     // isError: searchCategoriesIsError,
     // error: searchCategoriesError,
-    refetch: refetchSearchCategories
+    refetch: refetchSearchCategories,
   } = useGetSearchCategories(category, currentPage);
 
   const selectCategoryHandler = (event) => {
     setCategory(event.target.value);
+    setCurrentPage(1);
   };
 
   const leftClickHandler = () => {
-    setCurrentPage(currentPage => currentPage -= 1);
+    setCurrentPage((currentPage) => (currentPage -= 1));
   };
 
   const rightClickHandler = () => {
-    setCurrentPage(currentPage => currentPage += 1);
+    setCurrentPage((currentPage) => (currentPage += 1));
   };
 
   useEffect(() => {
     refetchSearchCategories();
-  }, [category, refetchSearchCategories, currentPage])
+  }, [category, refetchSearchCategories, currentPage]);
 
-  if (searchCategoriesIsLoading) return <p>Loading...</p>;
-  if (categoriesIsLoading) return <p>Loading...</p>;
-  
   const selectCategories = categoriesData.map((category) => {
     return (
       <MenuItem key={category.id} value={category.name} label={category.name}>
@@ -55,10 +51,10 @@ const Categories = () => {
       </MenuItem>
     );
   });
-  
+
   const catImageCards = searchCategoriesData.map((imageData) => {
-    return <CatImageCard key={imageData.id} imageData={imageData}/>
-  })
+    return <CatImageCard key={imageData.id} imageData={imageData} />;
+  });
 
   return (
     <Fragment>
@@ -78,11 +74,27 @@ const Categories = () => {
           </FormControl>
         </div>
       </div>
-      {searchCategoriesData.length < 1 && <p>No cats to see here</p>}
-      <div className={classes.gridContainer}>
-        <div className={classes.grid}>{catImageCards}</div>
+      {searchCategoriesIsLoading ||
+        (isFetching && (
+          <div className={classes.loadingCat}>
+            <LoadingCat />
+          </div>
+        ))}
+      {searchCategoriesData.length < 1 && !searchCategoriesIsLoading && (
+        <p>No cats to see here</p>
+      )}
+      {!isFetching && (
+        <div className={classes.gridContainer}>
+          <div className={classes.grid}>{catImageCards}</div>
+        </div>
+      )}
+      <div className={classes.pageButtonsContainer}>
+        <PageButtons
+          leftClick={leftClickHandler}
+          rightClick={rightClickHandler}
+          currentPage={currentPage}
+        />
       </div>
-      <PageButtons leftClick={leftClickHandler} rightClick={rightClickHandler} currentPage={currentPage}/>
     </Fragment>
   );
 };

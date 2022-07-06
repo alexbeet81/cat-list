@@ -5,7 +5,7 @@ const CatImageCard = ({ imageData }) => {
   return (
     <Card className={classes.card}>
       <div className={classes.image}>
-        <img src={imageData.url} alt="test" />
+        <img src={imageData.url} alt="image" />
       </div>
     </Card>
   );
