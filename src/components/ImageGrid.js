@@ -1,9 +1,10 @@
 import classes from "./ImageGrid.module.css";
 import CatImageCard from "./CatImageCard";
 
-const ImageGrid = ({ data }) => {
+const ImageGrid = ({ data, fav }) => {
+
   const catImageCards = data.map((imageData) => {
-    return <CatImageCard key={imageData.id} imageData={imageData} />;
+    return <CatImageCard key={imageData.id} imageData={imageData} fav={fav} />;
   });
 
   return (

@@ -7,9 +7,10 @@ import { queryKeys } from "../react-query/query-keys";
 import { subId } from "../react-query/sub-id";
 
 const postFavourite = async (imageId) => {
+  console.log(imageId);
+  
   const imageData = {
     image_id: imageId,
-    value: 1,
     sub_id: subId,
   };
 
@@ -20,6 +21,10 @@ const postFavourite = async (imageId) => {
   });
 };
 
-export const usePostFavourite = (imageId) => {
-  useMutation(() => postFavourite(imageId));
-}
+export const usePostFavourite = () => {
+  const { mutate, isSuccess, isLoading } = useMutation((imageId) =>
+    postFavourite(imageId)
+  );
+
+  return { mutate, isSuccess, isLoading };
+};

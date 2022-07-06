@@ -9,7 +9,6 @@ import { useIsFetching } from "react-query";
 import ImageGrid from "../components/ImageGrid";
 import LoadingCat from "../components/UI/LoadingCat";
 import PageButtons from "../components/PageButtons";
-import CatImageCard from "../components/CatImageCard";
 import { useGetSearchCategories } from "../hooks/use-get-search-categories";
 import { useGetCategoies } from "../hooks/use-get-categories";
 
