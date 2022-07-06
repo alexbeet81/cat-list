@@ -13,7 +13,8 @@ import { useGetSearchCategories } from "../hooks/use-get-search-categories";
 import { useGetCategoies } from "../hooks/use-get-categories";
 
 const Categories = () => {
-  const isFetching = useIsFetching();
+  const isFetchingSearchCategories = useIsFetching(["search_categories"]);
+  console.log(isFetchingSearchCategories);
   const { data: categoriesData } = useGetCategoies();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,16 +75,15 @@ const Categories = () => {
           </FormControl>
         </div>
       </div>
-      {searchCategoriesIsLoading ||
-        (isFetching && (
-          <div className={classes.loadingCat}>
-            <LoadingCat />
-          </div>
-        ))}
+      {searchCategoriesIsLoading && (
+        <div className={classes.loadingCat}>
+          <LoadingCat />
+        </div>
+      )}
       {searchCategoriesData.length < 1 && !searchCategoriesIsLoading && (
         <p>No cats to see here</p>
       )}
-      {!isFetching && (
+      {!isFetchingSearchCategories && (
         <div className={classes.gridContainer}>
           <div className={classes.grid}>{catImageCards}</div>
         </div>
