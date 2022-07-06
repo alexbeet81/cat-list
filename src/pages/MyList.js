@@ -16,7 +16,7 @@ const MyList = () => {
 
   return (
     <div className={classes.container}>
-      <h2>🐈 What a load of lovey cats! 🐈‍⬛</h2>
+      <h2>🐈 What a lovey load of cats! 🐈‍⬛</h2>
       <ImageGrid data={favouritesData} fav={true} />
     </div>
   );
