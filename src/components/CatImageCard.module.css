@@ -15,16 +15,13 @@
   bottom: 0;
   right: 0.25rem;
   cursor: pointer;
-  color: white;
+  color: var(--main);
   opacity: 0;
 }
 
 .heartHover {
   opacity: 1;
-}
-
-.selected {
-  color: red;
+  transition: all 0.3s;
 }
 
 .heart svg {

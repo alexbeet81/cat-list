@@ -3,13 +3,15 @@ import classes from "./CatImageCard.module.css";
 import Card from "./UI/Card";
 import { useState } from "react";
 import { usePostFavourite } from "../hooks/use-post-favourite";
-import { useDeleteFavourite } from '../hooks/use-delete-favourite';
-import catLoading from "../assets/catloading.gif";  
+import { useDeleteFavourite } from "../hooks/use-delete-favourite";
+import catLoading from "../assets/catloading.gif";
 import lovingCat from "../assets/catlove.gif";
 
 const CatImageCard = ({ imageData, fav }) => {
-  const { mutate: postFavourite, isLoading: postIsLoading } = usePostFavourite();
-  const { mutate: deleteFavourite, isLoading: deleteIsLoading } = useDeleteFavourite();
+  const { mutate: postFavourite, isLoading: postIsLoading } =
+    usePostFavourite();
+  const { mutate: deleteFavourite, isLoading: deleteIsLoading } =
+    useDeleteFavourite();
   const [heartIsSelected, setHeartIsSelected] = useState(false);
 
   console.log(imageData);
@@ -22,12 +24,12 @@ const CatImageCard = ({ imageData, fav }) => {
 
   const deleteFavouriteHandler = () => {
     deleteFavourite(imageData.id);
-  }
+  };
 
   const heartClasses = heartIsSelected
-    ? `${classes.heart} ${classes.selected}`
+    ? `${classes.heart} ${classes.heartHover}`
     : classes.heart;
-  
+
   const heartElement = heartIsSelected ? <AiFillHeart /> : <AiTwotoneHeart />;
 
   const image = fav ? imageData.image.url : imageData.url;
@@ -38,15 +40,23 @@ const CatImageCard = ({ imageData, fav }) => {
 
   // const catLiked = postIsLoading ? lovingCat : image
 
-  const testHandler = () => {
-    console.log('test')
+  const mouseOverHandler = () => {
+    setHeartIsSelected(true);
+  };
+
+  const mouseOutHandler = () => {
+    setHeartIsSelected(false);
   };
 
   const onClickFuction = fav ? deleteFavouriteHandler : selectHeartHandler;
 
   return (
-    <Card className={classes.card} onMouseOver={testHandler}>
-    <div className={heartClasses} onClick={onClickFuction}>
+    <Card
+      className={classes.card}
+      onMouseOver={mouseOverHandler}
+      onMouseOut={mouseOutHandler}
+    >
+      <div className={heartClasses} onClick={onClickFuction}>
         {heartElement}
       </div>
       <div className={classes.image}>
