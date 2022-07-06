@@ -1,0 +1,13 @@
+.loadingContainer {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 1rem;
+}
+
+.container h2 {
+  text-align: center;
+}

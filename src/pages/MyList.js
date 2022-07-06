@@ -7,9 +7,19 @@ const MyList = () => {
   const { data: favouritesData, isLoading: favouritesIsLoading } =
     useGetFavourites();
 
-  if (favouritesIsLoading) return <LoadingCat />;
+  if (favouritesIsLoading)
+    return (
+      <div className={classes.loadingContainer}>
+        <LoadingCat />
+      </div>
+    );
 
-  return <ImageGrid data={favouritesData} fav={true} />;
+  return (
+    <div className={classes.container}>
+      <h2>🐈 What a load of lovey cats! 🐈‍⬛</h2>
+      <ImageGrid data={favouritesData} fav={true} />
+    </div>
+  );
 };
 
 export default MyList;

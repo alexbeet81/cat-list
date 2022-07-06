@@ -10,7 +10,6 @@ const Breeds = () => {
     data: breedsData,
     isLoading: breedsIsLoading,
     isError: breedsIsError,
-    error: BreedsError,
   } = useGetBreeds();
 
   if (breedsIsError) return <p>Error...</p>;

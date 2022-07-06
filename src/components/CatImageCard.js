@@ -1,4 +1,5 @@
-import { AiFillHeart, AiTwotoneHeart } from "react-icons/ai";
+import { AiTwotoneHeart } from "react-icons/ai";
+import { GiDeathSkull } from "react-icons/gi";
 import classes from "./CatImageCard.module.css";
 import Card from "./UI/Card";
 import { useState } from "react";
@@ -14,8 +15,6 @@ const CatImageCard = ({ imageData, fav }) => {
     useDeleteFavourite();
   const [heartIsSelected, setHeartIsSelected] = useState(false);
 
-  console.log(imageData);
-
   const selectHeartHandler = () => {
     setHeartIsSelected((prevState) => !prevState);
     // API add fav
@@ -30,7 +29,7 @@ const CatImageCard = ({ imageData, fav }) => {
     ? `${classes.heart} ${classes.heartHover}`
     : classes.heart;
 
-  const heartElement = heartIsSelected ? <AiFillHeart /> : <AiTwotoneHeart />;
+  const heartElement = fav ? <GiDeathSkull /> : <AiTwotoneHeart />;
 
   const image = fav ? imageData.image.url : imageData.url;
 
@@ -55,8 +54,9 @@ const CatImageCard = ({ imageData, fav }) => {
       className={classes.card}
       onMouseOver={mouseOverHandler}
       onMouseOut={mouseOutHandler}
+      onClick={onClickFuction}
     >
-      <div className={heartClasses} onClick={onClickFuction}>
+      <div className={heartClasses}>
         {heartElement}
       </div>
       <div className={classes.image}>

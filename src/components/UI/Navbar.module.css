@@ -19,4 +19,5 @@
 .links a {
   color: var(--black);
   text-decoration: none;
+  transition: all 0.3s;
 }

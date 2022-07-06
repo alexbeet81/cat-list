@@ -3,26 +3,22 @@ import { NavLink } from "react-router-dom";
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
-  // const activeStyle = {
-  //   fontWeight: "bold",
-  // };
-
   const activeStyle = {
-    color: "blue",
+    fontWeight: "bold",
   };
 
-  const isAvtive = ({ isAvtive }) => (isAvtive ? activeStyle : undefined);
+  const isActive = ({ isActive }) => (isActive ? activeStyle : undefined);
 
   return (
     <div className={classes.container}>
       <div className={classes.links}>
-        <NavLink style={isAvtive} to="/">
-          Genre of Cat
+        <NavLink style={isActive} to="/">
+          Kinds of Cat
         </NavLink>
-        <NavLink style={isAvtive} to="categories">
+        <NavLink style={isActive} to="categories">
           🐈-egories
         </NavLink>
-        <NavLink style={isAvtive} to="/my_list">
+        <NavLink style={isActive} to="/my_list">
           My 😻 List
         </NavLink>
       </div>
