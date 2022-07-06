@@ -38,3 +38,6 @@ It was a fun, short project. If I continue I will add..
 - [ ] more media queries
 - [ ] add better error handling
 
+## Screen shots
+
+
