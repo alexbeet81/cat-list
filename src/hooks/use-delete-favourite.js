@@ -4,7 +4,6 @@ import { useMutation, useQueryClient } from "react-query";
 import { baseUrl } from "../react-query/base-url";
 import { apiKey } from "../react-query/api-key";
 import { queryKeys } from "../react-query/query-keys";
-import { subId } from "../react-query/sub-id";
 
 const deleteFavourite = async (id) => {
   await axios.delete(`${baseUrl}/favourites/${id}`, {

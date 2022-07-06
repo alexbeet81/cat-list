@@ -17,7 +17,7 @@ const Breeds = () => {
   const breedCards = breedsData.map((breed) => {
     let image = noCatImage;
 
-    if (breed.image != undefined) {
+    if (breed.image !== undefined) {
       image = breed.image.url;
     }
 

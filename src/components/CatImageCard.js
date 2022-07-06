@@ -60,7 +60,7 @@ const CatImageCard = ({ imageData, fav }) => {
         {heartElement}
       </div>
       <div className={classes.image}>
-        <img src={selcetedImage} alt="image" />
+        <img src={selcetedImage} alt="cat" />
       </div>
     </Card>
   );
