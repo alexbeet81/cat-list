@@ -23,8 +23,6 @@ const Categories = () => {
   const {
     data: searchCategoriesData,
     isLoading: searchCategoriesIsLoading,
-    // isError: searchCategoriesIsError,
-    // error: searchCategoriesError,
     refetch: refetchSearchCategories,
   } = useGetSearchCategories(category, currentPage);
 
@@ -57,6 +55,15 @@ const Categories = () => {
     return <CatImageCard key={imageData.id} imageData={imageData} />;
   });
 
+  const loadingCat =
+    isFetchingSearchCategories || searchCategoriesIsLoading ? (
+      <div className={classes.loadingCat}>
+        <LoadingCat />
+      </div>
+    ) : (
+      ""
+    );
+
   return (
     <Fragment>
       <div className={classes.selectContainer}>
@@ -75,11 +82,7 @@ const Categories = () => {
           </FormControl>
         </div>
       </div>
-      {searchCategoriesIsLoading && (
-        <div className={classes.loadingCat}>
-          <LoadingCat />
-        </div>
-      )}
+      {loadingCat}
       {searchCategoriesData.length < 1 && !searchCategoriesIsLoading && (
         <p>No cats to see here</p>
       )}
